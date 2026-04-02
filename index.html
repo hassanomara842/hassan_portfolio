@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hassan Omara | The Future of Software</title>
+    <meta name="description"
+        content="Portfolio of Hassan Omara, Software Engineer and Tech Entrepreneur specializing in Flutter, AI, and Scalable Architectures.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@300;400;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <canvas id="stars-canvas"></canvas>
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+
+    <!-- Navigation -->
+    <nav class="glass-nav">
+        <div class="container nav-content">
+            <a href="#" class="logo">Hassan Omara<span>.</span></a>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Arsenal</a></li>
+                <li><a href="#projects">Masterpieces</a></li>
+                <li><a href="#vision">Vision</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- 1. The Hero Section -->
+    <header class="hero" id="home">
+        <!-- We will apply the background image via CSS or JS later -->
+        <div class="hero-bg-overlay"></div>
+        <div class="container hero-content">
+            <div class="hero-badge fade-up">Software Engineer & Tech Entrepreneur</div>
+            <h1 class="hero-title fade-up delay-1">Engineering <span class="text-gradient">Innovation</span>,<br>Leading
+                the Vision.</h1>
+            <p class="hero-subtitle fade-up delay-2">I am Hassan Omara, a Software Engineer and Tech Entrepreneur
+                specializing in Flutter, AI, and Scalable Architectures. I don’t just write code; I architect digital
+                ecosystems.</p>
+            <div class="hero-cta fade-up delay-3">
+                <a href="#projects" class="btn btn-primary">Explore My Ecosystem</a>
+                <a href="#vision" class="btn btn-secondary">Build Your Vision</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- 2. About the Founder -->
+    <section class="about" id="about">
+        <div class="container about-grid">
+            <div class="about-text scroll-reveal">
+                <h2 class="section-title">The <span class="text-gradient">Journey</span></h2>
+                <div class="glass-card about-card">
+                    <p>Currently in my final year of Software Engineering at Borg El Arab Technological University, I
+                        have spent my journey mastering the art of building stable, scalable, and beautiful systems.
+                        From acting as a Team Lead managing complex Git workflows to developing AI-powered solutions, my
+                        focus has always been on precision and growth.</p>
+                    <div class="divider"></div>
+                    <p class="highlight-text">My philosophy is simple: Technology should be Smart, Fast, and Premium.
+                    </p>
+                    <p>I am currently laying the foundation for <strong>Hassan Omara Software House</strong>, destined
+                        to become a global leader in high-end software solutions.</p>
+                </div>
+            </div>
+            <div class="about-visual scroll-reveal delay-1">
+                <div class="profile-frame">
+                    <img src="hassan_image.jpg" alt="Hassan Omara" class="profile-img">
+                    <div class="glow-overlay"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. The Technical Arsenal -->
+    <section class="skills" id="skills">
+        <div class="container">
+            <div class="section-header center scroll-reveal">
+                <h2 class="section-title">The Technical <span class="text-gradient">Arsenal</span></h2>
+                <p class="section-desc">Tools forged for innovation, architecture, and dominance.</p>
+            </div>
+
+            <div class="skills-grid">
+                <div class="glass-card skill-card scroll-reveal">
+                    <div class="skill-icon">📱</div>
+                    <h3>Mobile Excellence</h3>
+                    <p>High-performance cross-platform apps using <strong>Flutter & Dart</strong>. Expert in Clean
+                        Architecture, BLoC, & MVVM.</p>
+                </div>
+                <div class="glass-card skill-card scroll-reveal delay-1">
+                    <div class="skill-icon">🧠</div>
+                    <h3>Intelligence Integrated</h3>
+                    <p>Crafting smart, predictive systems with <strong>Python, TensorFlow, and Keras</strong>.</p>
+                </div>
+                <div class="glass-card skill-card scroll-reveal delay-2">
+                    <div class="skill-icon">⚙️</div>
+                    <h3>Enterprise & Systems</h3>
+                    <p>Robust backend and desktop solutions via <strong>.NET, C#, and Firebase</strong>.</p>
+                </div>
+                <div class="glass-card skill-card scroll-reveal delay-3">
+                    <div class="skill-icon">🔌</div>
+                    <h3>Hardware & IoT</h3>
+                    <p>Bridging software and reality with <strong>Arduino, Linux, and Embedded Systems</strong> (CNC &
+                        Water Monitoring).</p>
+                </div>
+                <div class="glass-card skill-card scroll-reveal delay-4">
+                    <div class="skill-icon">🎨</div>
+                    <h3>Visual Design</h3>
+                    <p>Sculpting the future with <strong>Figma (UI/UX)</strong> and <strong>Blender (3D Asset
+                            Rendering)</strong>.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Featured Masterpieces -->
+    <section class="projects" id="projects">
+        <div class="container">
+            <div class="section-header scroll-reveal">
+                <h2 class="section-title">Featured <span class="text-gradient">Masterpieces</span></h2>
+                <p class="section-desc">Architected for scale, designed for impact.</p>
+            </div>
+
+            <!-- Main Case Study -->
+            <div class="glass-card project-card featured-project scroll-reveal">
+                <div class="project-content">
+                    <div class="project-badge">Main Case Study • Graduation Thesis</div>
+                    <h3 class="project-title">AI-Powered Code Reviewer</h3>
+                    <p class="project-desc">A revolutionary SDLC analytics platform that uses Machine Learning to
+                        optimize code quality. Perfect synergy of Flutter (UI), Python (AI), and .NET (Systems) driving
+                        an all-in-one scalable architecture.</p>
+                    <div class="tech-stack">
+                        <span>Flutter</span>
+                        <span>Python</span>
+                        <span>Machine Learning</span>
+                        <span>.NET</span>
+                    </div>
+                </div>
+                <div class="project-visual ai-visual">
+                    <!-- Project image will go here -->
+                    <div class="placeholder-img" id="img-ai"></div>
+                </div>
+            </div>
+
+            <div class="projects-grid">
+                <div class="glass-card project-card scroll-reveal">
+                    <div class="project-visual">
+                        <div class="placeholder-img" id="img-movie"></div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Premium Movie Ecosystem</h3>
+                        <p class="project-desc">A deep-linked mobile application featuring Hive caching, localization,
+                            and a high-end Glassmorphism UI.</p>
+                        <div class="tech-stack">
+                            <span>Flutter</span>
+                            <span>Hive</span>
+                            <span>Glassmorphism</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-card project-card scroll-reveal delay-1">
+                    <div class="project-visual">
+                        <div class="placeholder-img" id="img-cnc"></div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Industrial Innovation</h3>
+                        <p class="project-desc">Engineering the software-hardware interface for CNC Laser systems and
+                            Smart Water Monitoring.</p>
+                        <div class="tech-stack">
+                            <span>C/C++</span>
+                            <span>Arduino</span>
+                            <span>IoT</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. The Strategic Goal -->
+    <section class="vision" id="vision">
+        <div class="container vision-container scroll-reveal">
+            <div class="glass-card vision-card">
+                <div class="vision-icon">🚀</div>
+                <h2 class="section-title">The Strategic <span class="text-gradient">Goal</span></h2>
+                <blockquote>
+                    "The mission is clear: To establish the world’s leading Software House."
+                </blockquote>
+                <p>By merging technical discipline with creative leadership, I am building a brand where innovation
+                    meets reliability. Every line of code I write today is a brick in the foundation of tomorrow's tech
+                    giant.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. Digital Presence (Footer) -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-brand">
+                <a href="#" class="logo">OMARA<span>.</span></a>
+                <p>Architecting digital ecosystems for the future.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Digital Presence</h4>
+                <ul>
+                    <li><a href="https://github.com/hassanomara842" target="_blank"
+                            rel="noopener noreferrer"><strong>Code Repository:</strong> GitHub - hassanomara842</a></li>
+                    <li><a href="https://www.facebook.com/100613951545303" target="_blank"
+                            rel="noopener noreferrer"><strong>Business Engine:</strong> Hassan Omara Official Page</a>
+                    </li>
+                    <li><a href="https://www.instagram.com/hassanomara842" target="_blank"
+                            rel="noopener noreferrer"><strong>Visual Story:</strong> Follow the Journey on Instagram</a>
+                    </li>
+                    <li><a href="https://www.facebook.com/Hassan.hussien.5019" target="_blank"
+                            rel="noopener noreferrer"><strong>Professional Network:</strong> Connect on Facebook</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; <span id="year"></span> Hassan Omara Software House. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>
