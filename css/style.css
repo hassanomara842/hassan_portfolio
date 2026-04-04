@@ -233,55 +233,210 @@ h1, h2, h3, h4, .logo, .hero-badge {
     display: flex;
     align-items: center;
     position: relative;
-    padding-top: 80px;
+    padding-top: 100px;
+    background-color: var(--bg-color);
     background-image: url('../assets/hero_bg.png');
     background-size: cover;
     background-position: center;
+    overflow: hidden;
 }
 
 .hero-bg-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(to right, rgba(5,5,8,0.95) 0%, rgba(5,5,8,0.7) 100%);
+    background: linear-gradient(to right, rgba(5,5,8,0.95) 0%, rgba(5,5,8,0.6) 100%);
     z-index: 0;
+}
+
+.hero-glow {
+    position: absolute;
+    width: 800px;
+    height: 800px;
+    background: radial-gradient(circle, rgba(56,189,248,0.1) 0%, rgba(139,92,246,0.05) 40%, transparent 70%);
+    top: 40%;
+    left: 80%;
+    transform: translate(-50%, -50%);
+    z-index: 0;
+    filter: blur(60px);
+    border-radius: 50%;
+    animation: pulseGlow 10s infinite alternate ease-in-out;
+}
+
+@keyframes pulseGlow {
+    0% { transform: translate(-50%, -50%) scale(1); opacity: 0.7; }
+    100% { transform: translate(-50%, -50%) scale(1.1); opacity: 1; }
 }
 
 .hero-content {
     position: relative;
-    z-index: 1;
-    max-width: 800px;
+    z-index: 10;
+    max-width: 900px;
 }
 
 .hero-badge {
-    display: inline-block;
-    padding: 0.5rem 1.2rem;
-    background: rgba(56, 189, 248, 0.1);
-    border: 1px solid rgba(56, 189, 248, 0.2);
-    border-radius: 20px;
-    color: var(--accent);
-    font-weight: 600;
-    margin-bottom: 1.5rem;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    font-size: 0.9rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 0.6rem 1.4rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 100px;
+    color: var(--text-primary);
+    font-weight: 500;
+    margin-bottom: 2rem;
+    font-size: 0.95rem;
+    backdrop-filter: blur(10px);
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    background-color: #10b981;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #10b981;
+    position: relative;
+}
+
+.status-dot::after {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    border-radius: 50%;
+    border: 1px solid #10b981;
+    animation: ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+@keyframes ping {
+    75%, 100% { transform: scale(2); opacity: 0; }
 }
 
 .hero-title {
-    font-size: 4.5rem;
+    font-size: 5rem;
     line-height: 1.1;
     margin-bottom: 1.5rem;
+    font-weight: 800;
+    letter-spacing: -1.5px;
+}
+
+.premium-text {
+    background: linear-gradient(to right, #ffffff, #94a3b8);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    position: relative;
+    display: inline-block;
+}
+
+.premium-text::after {
+    content: '';
+    position: absolute;
+    bottom: 8px;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--accent), var(--neon-purple));
+    border-radius: 2px;
 }
 
 .hero-subtitle {
-    font-size: 1.25rem;
+    font-size: 1.3rem;
     color: var(--text-secondary);
-    margin-bottom: 2.5rem;
-    max-width: 700px;
+    margin-bottom: 3.5rem;
+    max-width: 650px;
+    line-height: 1.7;
+    font-weight: 300;
 }
 
 .hero-cta {
     display: flex;
     gap: 1.5rem;
+    margin-bottom: 4rem;
+}
+
+.btn-modern {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--text-primary);
+    color: var(--bg-color);
+    padding: 1.1rem 2.5rem;
+    border-radius: 100px;
+    font-weight: 600;
+    font-size: 1.05rem;
+    font-family: 'Outfit', sans-serif;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.btn-modern:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(255, 255, 255, 0.2);
+    background: #e2e8f0;
+}
+
+.btn-modern svg {
+    transition: transform 0.3s ease;
+}
+
+.btn-modern:hover svg {
+    transform: translateX(5px);
+}
+
+.btn-outline {
+    display: flex;
+    align-items: center;
+    background: transparent;
+    color: var(--text-primary);
+    padding: 1.1rem 2.5rem;
+    border-radius: 100px;
+    font-weight: 600;
+    font-size: 1.05rem;
+    font-family: 'Outfit', sans-serif;
+    text-decoration: none;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+.btn-outline:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.4);
+    transform: translateY(-2px);
+}
+
+.hero-stats {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 2.5rem;
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.stat-value {
+    font-size: 2rem;
+    font-weight: 700;
+    font-family: 'Outfit', sans-serif;
+    color: var(--text-primary);
+    line-height: 1;
+    margin-bottom: 0.5rem;
+}
+
+.stat-label {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-weight: 500;
+}
+
+.stat-divider {
+    width: 1px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.1);
 }
 
 /* 2. ABOUT SECTION */
@@ -615,26 +770,65 @@ h1, h2, h3, h4, .logo, .hero-badge {
     color: var(--text-primary);
 }
 
-.footer-links ul {
-    list-style: none;
+.social-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.2rem;
+    max-width: 500px;
 }
 
-.footer-links li {
-    margin-bottom: 1rem;
-}
-
-.footer-links a {
-    color: var(--text-secondary);
+.social-card {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.8rem 1rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
     text-decoration: none;
-    transition: var(--transition);
+    transition: all 0.3s ease;
 }
 
-.footer-links a:hover {
-    color: var(--accent);
+.social-card:hover {
+    background: rgba(255, 255, 255, 0.08);
+    transform: translateY(-3px);
+    border-color: rgba(56, 189, 248, 0.3);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
 }
 
-.footer-links strong {
+.social-icon {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    color: white;
+    flex-shrink: 0;
+}
+
+.social-icon.github { background: #333; }
+.social-icon.facebook { background: #1877f2; }
+.social-icon.instagram { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); }
+
+.social-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.social-net {
+    font-size: 0.95rem;
+    font-weight: 600;
     color: var(--text-primary);
+}
+
+.social-id {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+@media (max-width: 500px) {
+    .social-grid { grid-template-columns: 1fr; }
 }
 
 .footer-bottom {
@@ -705,4 +899,56 @@ h1, h2, h3, h4, .logo, .hero-badge {
     .hero-cta {
         flex-direction: column;
     }
+
+    .whatsapp-float {
+        bottom: 20px;
+        right: 20px;
+        width: 50px;
+        height: 50px;
+    }
+}
+
+/* WhatsApp Floating Button */
+.whatsapp-float {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    background-color: #25D366;
+    color: #FFF;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+.whatsapp-float:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
+    color: #FFF;
+}
+
+.whatsapp-float svg {
+    margin-top: 1px;
+}
+
+/* Pulsing effect */
+.whatsapp-float::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #25D366;
+    border-radius: 50%;
+    z-index: -1;
+    animation: pulseWhatsapp 2s infinite;
+}
+
+@keyframes pulseWhatsapp {
+    0% { transform: scale(1); opacity: 0.8; }
+    100% { transform: scale(1.6); opacity: 0; }
 }
