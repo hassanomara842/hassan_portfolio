@@ -19,6 +19,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 navLinks.classList.remove('active');
             });
         });
+
+        // Close menu when clicking outside the drawer
+        document.addEventListener('click', (e) => {
+            if (navLinks.classList.contains('active') && !navLinks.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+                mobileMenuBtn.classList.remove('active');
+                navLinks.classList.remove('active');
+            }
+        });
     }
 
     // 1. Dynamic Year in Footer

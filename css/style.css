@@ -22,6 +22,8 @@
 
 html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
+    width: 100%;
 }
 
 body {
@@ -29,6 +31,7 @@ body {
     color: var(--text-primary);
     line-height: 1.6;
     overflow-x: hidden;
+    width: 100%;
     position: relative;
 }
 
@@ -619,6 +622,9 @@ p {
 }
 
 .placeholder-img {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     background-size: cover;
@@ -933,26 +939,76 @@ p {
         position: fixed;
         top: 0;
         right: -100%;
-        width: 100%;
+        width: 65%;
+        max-width: 320px;
         height: 100vh;
-        background: rgba(5, 5, 8, 0.98);
-        backdrop-filter: blur(20px);
+        background: rgba(10, 10, 15, 0.85);
+        backdrop-filter: blur(25px);
+        -webkit-backdrop-filter: blur(25px);
+        border-left: 1px solid rgba(255, 255, 255, 0.05);
+        box-shadow: -15px 0 40px rgba(0, 0, 0, 0.6);
         flex-direction: column;
         justify-content: center;
-        align-items: center;
-        transition: var(--transition);
+        align-items: flex-start;
+        padding-left: 2.5rem;
+        transition: right 0.5s cubic-bezier(0.16, 1, 0.3, 1);
         gap: 2.5rem;
+        z-index: 999;
     }
 
     .nav-links.active {
         right: 0;
     }
 
-    .nav-links a {
-        font-size: 1.5rem;
+    .nav-links::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        right: 100%;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.5);
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.5s ease;
+        z-index: -1;
     }
 
-    .projects-grid {
+    .nav-links.active::before {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .nav-links a {
+        font-size: 1.4rem;
+        font-weight: 500;
+        color: var(--text-secondary);
+        position: relative;
+        padding-bottom: 0.5rem;
+        transition: all 0.3s ease;
+    }
+
+    .nav-links a::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: linear-gradient(90deg, var(--accent), var(--neon-purple));
+        transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover, .nav-links a:active {
+        color: var(--text-primary);
+        transform: translateX(10px);
+    }
+
+    .nav-links a:hover::after, .nav-links a:active::after {
+        width: 40px;
+    }
+
+    .projects-grid, .skills-grid {
         grid-template-columns: 1fr;
     }
 
