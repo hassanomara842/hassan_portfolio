@@ -30,7 +30,6 @@ body {
     background-color: var(--bg-color);
     color: var(--text-primary);
     line-height: 1.6;
-    overflow-x: hidden;
     width: 100%;
     position: relative;
 }
@@ -561,7 +560,79 @@ p {
     font-size: 1rem;
 }
 
-/* 4. PROJECTS SECTION */
+/* 4. CERTIFICATES SECTION */
+.certificates {
+    padding: 8rem 0;
+}
+
+.certificates-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+}
+
+.cert-card {
+    display: flex;
+    flex-direction: row;
+    gap: 4rem;
+    align-items: center;
+    padding: 3rem;
+}
+
+.cert-visual {
+    flex: 1;
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    max-width: 50%;
+}
+
+.cert-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 12px;
+    position: relative;
+    z-index: 2;
+    transition: transform 0.5s ease;
+}
+
+.cert-card:hover .cert-img {
+    transform: scale(1.03);
+}
+
+.glow-overlay-cert {
+    position: absolute;
+    inset: -10px;
+    background: linear-gradient(135deg, var(--accent), var(--neon-purple));
+    filter: blur(20px);
+    opacity: 0;
+    z-index: 1;
+    transition: opacity 0.4s ease;
+}
+
+.cert-card:hover .glow-overlay-cert {
+    opacity: 0.4;
+}
+
+.cert-content {
+    flex: 1;
+}
+
+.cert-meta {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.cert-date {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+/* 5. PROJECTS SECTION */
 .projects {
     padding: 8rem 0;
 }
@@ -710,7 +781,7 @@ p {
     gap: 3rem;
 }
 
-/* 5. VISION SECTION */
+/* 6. VISION SECTION */
 .vision {
     padding: 8rem 0 12rem 0;
 }
@@ -753,7 +824,7 @@ p {
     margin: 0 auto;
 }
 
-/* 6. FOOTER */
+/* 7. FOOTER */
 .footer {
     background: rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(10px);
@@ -881,6 +952,16 @@ p {
 }
 
 @media (max-width: 992px) {
+    .cert-card {
+        flex-direction: column;
+        gap: 2rem;
+        padding: 2rem;
+    }
+    
+    .cert-visual {
+        max-width: 100%;
+    }
+
     .featured-project {
         flex-direction: column-reverse;
     }
