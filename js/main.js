@@ -35,19 +35,19 @@ document.addEventListener('DOMContentLoaded', () => {
         yearSpan.textContent = new Date().getFullYear();
     }
 
-    // 2. Scroll Reveal Animations (Upgraded to IntersectionObserver for perfect reliability)
+    // 2. Scroll Reveal Animations
     const revealElements = document.querySelectorAll('.scroll-reveal');
 
     const revealObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('active');
-                observer.unobserve(entry.target); // Optional: only animate once
+                observer.unobserve(entry.target);
             }
         });
     }, {
         root: null,
-        rootMargin: '0px 0px -100px 0px', // Trigger slightly before it fully comes into view
+        rootMargin: '0px 0px -100px 0px',
         threshold: 0
     });
 
@@ -164,26 +164,5 @@ document.addEventListener('DOMContentLoaded', () => {
         initStars();
         drawStars();
         window.addEventListener('resize', initStars);
-    }
-
-    // 7. Video Lazy Loading and Play on Scroll
-    const projectVideos = document.querySelectorAll('.project-video');
-    if (projectVideos.length > 0) {
-        const videoObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.play().catch(e => console.log('Autoplay prevented', e));
-                } else {
-                    entry.target.pause();
-                }
-            });
-        }, {
-            threshold: 0.1, // Play when 10% visible
-            rootMargin: '100px' // Start loading slightly before it comes into view
-        });
-
-        projectVideos.forEach(video => {
-            videoObserver.observe(video);
-        });
     }
 });
