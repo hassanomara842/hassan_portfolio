@@ -978,7 +978,7 @@ p {
 
 @media (max-width: 900px) {
   .featured-web-project {
-    flex-direction: column;
+    flex-direction: column-reverse;
     align-items: stretch;
     padding: 2rem;
     gap: 2rem;
