@@ -474,6 +474,16 @@ p {
   letter-spacing: -1.5px;
 }
 
+.mobile-break {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .mobile-break {
+    display: block;
+  }
+}
+
 .premium-text {
   background: linear-gradient(to right, #ffffff, #94a3b8);
   -webkit-background-clip: text;
