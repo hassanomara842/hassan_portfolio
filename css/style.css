@@ -970,6 +970,14 @@ p {
   .featured-web-project {
     flex-direction: column;
     padding: 2rem;
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .featured-web-project {
+    padding: 1.25rem;
+    gap: 1.5rem;
   }
 }
 
