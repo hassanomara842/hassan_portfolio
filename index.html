@@ -71,6 +71,10 @@
 </head>
 
 <body>
+    <!-- Custom Cursor -->
+    <div class="custom-cursor"></div>
+    <div class="custom-cursor-dot"></div>
+
     <canvas id="stars-canvas"></canvas>
     <div class="blob blob-1"></div>
     <div class="blob blob-2"></div>
@@ -80,11 +84,7 @@
     <nav class="glass-nav">
         <div class="container nav-content">
             <a href="#" class="logo">Hassan Omara<span>.</span></a>
-            <div class="mobile-menu-btn">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
+            
             <ul class="nav-links">
                 <li><a href="#about">About</a></li>
                 <li><a href="#skills">Arsenal</a></li>
@@ -92,6 +92,12 @@
                 <li><a href="#projects">Masterpieces</a></li>
                 <li><a href="#vision">Vision</a></li>
             </ul>
+
+            <div class="mobile-menu-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </div>
     </nav>
 
@@ -105,7 +111,7 @@
                 Software Engineer & Tech Entrepreneur
             </div>
             <h1 class="hero-title fade-up delay-1">
-                Engineering <span class="premium-text">Innovation</span>,<br>
+                Engineering <span class="premium-text" id="typewriter">Innovation</span><span class="cursor-blink"></span>,<br>
                 Leading the Vision.
             </h1>
             <p class="hero-subtitle fade-up delay-2">I am Hassan Omara, a Software Engineer and Tech Entrepreneur
@@ -202,8 +208,12 @@
                 <div class="glass-card skill-card scroll-reveal delay-4">
                     <div class="skill-icon">🎨</div>
                     <h3>Visual Design</h3>
-                    <p>Sculpting the future with <strong>Figma (UI/UX)</strong> and <strong>Blender (3D Asset
-                            Rendering)</strong>.</p>
+                    <p>Sculpting the future with <strong>Figma (UI/UX)</strong> and <strong>Blender (3D Asset Rendering)</strong>.</p>
+                </div>
+                <div class="glass-card skill-card scroll-reveal delay-5">
+                    <div class="skill-icon">🌐</div>
+                    <h3>Web Development</h3>
+                    <p>Architecting premium, high-performance <strong>Websites</strong> and web applications with modern frontend and backend technologies.</p>
                 </div>
             </div>
         </div>
@@ -271,6 +281,43 @@
                 </div>
             </div>
 
+            <!-- Web Masterpiece (Horizontal Layout) -->
+            <div class="glass-card featured-web-project scroll-reveal" style="margin-bottom: 3rem;">
+                <div class="project-content">
+                    <div class="project-badge">Full-Stack Web Architecture</div>
+                    <h3 class="project-title">Aura EduHub</h3>
+                    <p class="project-desc">A comprehensive digital directory and application platform for scholarships and study abroad programs. Features a highly responsive RTL UI with seamless animations, a secure Admin Dashboard with JWT/bcrypt authentication, and automated Excel data exports.</p>
+                    <div class="tech-stack">
+                        <span>React.js</span>
+                        <span>Vite</span>
+                        <span>Node.js</span>
+                        <span>Express.js</span>
+                    </div>
+                    <div style="display: flex; gap: 10px; margin-top: 20px;">
+                        <a href="https://aura-eduhub.me/" target="_blank" class="btn btn-primary" style="padding: 0.5rem 1.2rem; font-size: 0.9rem; border-radius: 10px;">Live Demo</a>
+                    </div>
+                </div>
+                <div class="project-visual">
+                    <div class="browser-mockup">
+                        <div class="browser-header">
+                            <div class="browser-dots">
+                                <span></span><span></span><span></span>
+                            </div>
+                        </div>
+                        <div class="browser-content crossfade" id="aura-slider">
+                            <img src="assets/aura-eduhub (1).png" alt="Aura EduHub 1" class="active">
+                            <img src="assets/aura-eduhub (2).png" alt="Aura EduHub 2">
+                            <img src="assets/aura-eduhub (3).png" alt="Aura EduHub 3">
+                            <img src="assets/aura-eduhub (4).png" alt="Aura EduHub 4">
+                            <img src="assets/aura-eduhub (5).png" alt="Aura EduHub 5">
+                            <img src="assets/aura-eduhub (6).png" alt="Aura EduHub 6">
+                            <img src="assets/aura-eduhub (7).png" alt="Aura EduHub 7">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="section-title" style="font-size: 2rem; margin-bottom: 1.5rem;">Mobile Ecosystems</h3>
             <div class="projects-grid">
                 <div class="glass-card project-card scroll-reveal">
                     <div class="project-visual">
@@ -519,7 +566,24 @@
         </svg>
     </a>
 
+    <!-- Floating Language Button -->
+    <button id="lang-toggle" class="floating-lang-btn" title="Translate to Arabic">ع</button>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
     <script src="js/main.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const images = document.querySelectorAll("#aura-slider img");
+            if (images.length > 0) {
+                let currentIndex = 0;
+                setInterval(() => {
+                    images[currentIndex].classList.remove("active");
+                    currentIndex = (currentIndex + 1) % images.length;
+                    images[currentIndex].classList.add("active");
+                }, 3000);
+            }
+        });
+    </script>
 </body>
 
 </html>

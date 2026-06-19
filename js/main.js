@@ -59,11 +59,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const nav = document.querySelector('.glass-nav');
     window.addEventListener('scroll', () => {
         if (window.scrollY > 50) {
-            nav.style.background = 'rgba(5, 5, 8, 0.9)';
-            nav.style.boxShadow = '0 4px 30px rgba(0, 0, 0, 0.5)';
+            nav.classList.add('scrolled');
+            // Remove old inline styles if any
+            nav.style.background = '';
+            nav.style.boxShadow = '';
         } else {
-            nav.style.background = 'rgba(5, 5, 8, 0.7)';
-            nav.style.boxShadow = 'none';
+            nav.classList.remove('scrolled');
         }
     });
 
@@ -164,5 +165,100 @@ document.addEventListener('DOMContentLoaded', () => {
         initStars();
         drawStars();
         window.addEventListener('resize', initStars);
+    }
+
+    // 7. Custom Cursor
+    const cursor = document.querySelector('.custom-cursor');
+    const cursorDot = document.querySelector('.custom-cursor-dot');
+
+    if (cursor && cursorDot && window.innerWidth > 768) {
+        document.addEventListener('mousemove', (e) => {
+            // Delay main cursor slightly for a smooth dragging effect
+            setTimeout(() => {
+                cursor.style.left = e.clientX + 'px';
+                cursor.style.top = e.clientY + 'px';
+            }, 50);
+            
+            cursorDot.style.left = e.clientX + 'px';
+            cursorDot.style.top = e.clientY + 'px';
+        });
+
+        // Hover effect for links and buttons
+        const hoverables = document.querySelectorAll('a, button, .btn, .social-card, .mobile-menu-btn, .whatsapp-float');
+        hoverables.forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                cursor.classList.add('hovered');
+            });
+            el.addEventListener('mouseleave', () => {
+                cursor.classList.remove('hovered');
+            });
+        });
+    }
+
+    // 8. Typewriter Effect
+    const typewriterEl = document.getElementById('typewriter');
+    if (typewriterEl) {
+        const words = ['Innovation', 'Excellence', 'Intelligence'];
+        let wordIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+
+        const type = () => {
+            const currentWord = words[wordIndex];
+            
+            if (isDeleting) {
+                typewriterEl.textContent = currentWord.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                typewriterEl.textContent = currentWord.substring(0, charIndex + 1);
+                charIndex++;
+            }
+
+            let typeSpeed = isDeleting ? 50 : 150;
+
+            if (!isDeleting && charIndex === currentWord.length) {
+                typeSpeed = 2000; // Pause at the end
+                isDeleting = true;
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                wordIndex = (wordIndex + 1) % words.length;
+                typeSpeed = 500; // Pause before typing new word
+            }
+
+            setTimeout(type, typeSpeed);
+        };
+
+        setTimeout(type, 1000); // Initial delay
+    }
+
+    // 9. Initialize 3D Tilt for Glass Cards
+    if (typeof VanillaTilt !== 'undefined') {
+        VanillaTilt.init(document.querySelectorAll(".glass-card"), {
+            max: 5,
+            speed: 400,
+            glare: true,
+            "max-glare": 0.2,
+        });
+        
+        VanillaTilt.init(document.querySelectorAll(".phone-mockup"), {
+            max: 10,
+            speed: 400,
+            scale: 1.05,
+        });
+    }
+
+    // 10. Interactive Background Blobs
+    const blobs = document.querySelectorAll('.blob');
+    if (blobs.length > 0 && window.innerWidth > 768) {
+        document.addEventListener('mousemove', (e) => {
+            const x = (e.clientX / window.innerWidth) - 0.5;
+            const y = (e.clientY / window.innerHeight) - 0.5;
+
+            blobs[0].style.transform = `translate(${x * 100}px, ${y * 100}px)`;
+            blobs[1].style.transform = `translate(${x * -80}px, ${y * -80}px)`;
+            if(blobs[2]) {
+                 blobs[2].style.transform = `translate(-50%, -50%) translate(${x * 60}px, ${y * 60}px)`;
+            }
+        });
     }
 });
