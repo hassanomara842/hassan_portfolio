@@ -1635,3 +1635,18 @@ p {
     opacity: 0;
   }
 }
+
+/* ============================================================
+   3D PHONE SHOWCASE
+   ============================================================ */
+#phone3d-showcase {
+  padding: 0;
+  margin: 3rem 0 2rem;
+}
+
+.phone3d-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+  min-height: 640px;
+}
