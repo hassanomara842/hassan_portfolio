@@ -424,7 +424,8 @@ p {
   position: relative;
   z-index: 10;
   max-width: 900px;
-  text-align: start;
+  width: 100%;
+  text-align: start !important;
 }
 
 .hero-badge {
@@ -474,6 +475,7 @@ p {
   margin-bottom: 1.5rem;
   font-weight: 800;
   letter-spacing: -1.5px;
+  text-align: start !important;
 }
 
 .mobile-break {
@@ -529,6 +531,7 @@ p {
   max-width: 650px;
   line-height: 1.7;
   font-weight: 300;
+  text-align: start !important;
 }
 
 .hero-cta {
