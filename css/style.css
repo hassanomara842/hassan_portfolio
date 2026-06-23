@@ -1427,21 +1427,41 @@ p {
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    padding-left: 2.5rem;
-    transition: right 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    padding-inline-start: 2.5rem;
+    transition: right 0.5s cubic-bezier(0.16, 1, 0.3, 1), left 0.5s cubic-bezier(0.16, 1, 0.3, 1);
     gap: 2.5rem;
     z-index: 999;
   }
 
-  .nav-links.active {
+  /* LTR: slide from right */
+  html:not([dir='rtl']) .nav-links {
+    right: -100%;
+    left: auto;
+  }
+  html:not([dir='rtl']) .nav-links.active {
     right: 0;
+  }
+
+  /* RTL: slide from left */
+  html[dir='rtl'] .nav-links {
+    left: -100%;
+    right: auto;
+    align-items: flex-end;
+    padding-inline-start: 0;
+    padding-inline-end: 2.5rem;
+    border-left: none;
+    border-right: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 15px 0 40px rgba(0, 0, 0, 0.6);
+  }
+  html[dir='rtl'] .nav-links.active {
+    left: 0;
   }
 
   .nav-links::before {
     content: "";
     position: fixed;
     top: 0;
-    right: 100%;
+    left: 0;
     width: 100vw;
     height: 100vh;
     background: rgba(0, 0, 0, 0.5);
