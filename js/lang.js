@@ -80,8 +80,8 @@ const translations = {
         "nav-vision": "الرؤية",
         "hero-badge": "شركة برمجيات ومنظومة تقنية",
         "hero-subtitle": "مرحباً بك في حسن تك، شركة برمجيات رائدة متخصصة في تطبيقات فلاتر، الذكاء الاصطناعي، والأنظمة القابلة للتوسع. نحن لا نكتب الكود فقط؛ بل نصمم منظومات رقمية متكاملة.",
-        "hero-title-start": "نهندس",
-        "hero-title-end": "ونبني المستقبل.",
+        "hero-title-start": "نحوّل أفكارك إلى",
+        "hero-title-end": "بحلول برمجية استثنائية.",
         "hero-cta-1": "استكشف منظومتنا",
         "hero-cta-2": "ابنِ رؤيتك",
         "stat-scale": "الحجم",
@@ -182,7 +182,7 @@ function setLanguage(lang) {
 // Handle Typewriter words based on language
 window.typewriterWords = {
     en: ['Innovation', 'Excellence', 'Intelligence'],
-    ar: ['الابتكار', 'التميز', 'الذكاء']
+    ar: ['واقع رقمي', 'تطبيقات ذكية', 'أنظمة متكاملة', 'مستقبل مبهر']
 };
 
 function updateTypewriterLang(lang) {
