@@ -1,0 +1,132 @@
+/* ============================================================
+   3D ISOMETRIC GITHUB CONTRIBUTIONS
+   ============================================================ */
+   
+.github-3d-section {
+    padding: 100px 0;
+    overflow: hidden;
+}
+
+.github-3d-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+}
+
+.isometric-grid {
+    position: relative;
+    width: 600px;
+    height: 300px;
+    /* Isometric Transform */
+    transform: rotateX(60deg) rotateZ(-45deg);
+    transform-style: preserve-3d;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(7, 1fr);
+    gap: 4px;
+    margin: 0 auto;
+}
+
+.pillar {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.05);
+    transform-style: preserve-3d;
+    transition: transform 0.3s ease;
+}
+
+/* Base colors for activity levels */
+.pillar[data-level="0"] { --level-color: rgba(255, 255, 255, 0.05); --top-color: rgba(255, 255, 255, 0.1); }
+.pillar[data-level="1"] { --level-color: #0e4429; --top-color: #1a633a; }
+.pillar[data-level="2"] { --level-color: #006d32; --top-color: #00873d; }
+.pillar[data-level="3"] { --level-color: #26a641; --top-color: #36c553; }
+.pillar[data-level="4"] { --level-color: #39d353; --top-color: #4df568; }
+
+.pillar::before,
+.pillar::after {
+    content: '';
+    position: absolute;
+    display: block;
+}
+
+/* The Top Face */
+.pillar {
+    background-color: var(--top-color);
+}
+
+/* The Right Face */
+.pillar::before {
+    width: 100%;
+    background-color: var(--level-color);
+    filter: brightness(0.7);
+    transform-origin: top;
+    transform: rotateX(-90deg);
+    top: 100%;
+    left: 0;
+}
+
+/* The Left Face */
+.pillar::after {
+    height: 100%;
+    background-color: var(--level-color);
+    filter: brightness(0.5);
+    transform-origin: left;
+    transform: rotateY(90deg);
+    top: 0;
+    left: 100%;
+}
+
+/* Apply heights based on data-height */
+.pillar {
+    transform: translateZ(var(--z-height, 0px));
+}
+
+.pillar::before {
+    height: var(--z-height, 0px);
+}
+.pillar::after {
+    width: var(--z-height, 0px);
+}
+
+/* Hover effect */
+.pillar:hover {
+    transform: translateZ(calc(var(--z-height, 0px) + 20px));
+    cursor: pointer;
+    filter: brightness(1.2);
+}
+
+.github-stats {
+    display: flex;
+    gap: 40px;
+    background: rgba(255,255,255,0.02);
+    padding: 20px 40px;
+    border-radius: 20px;
+    border: 1px solid rgba(255,255,255,0.05);
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.stat-num {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--accent-color);
+    font-family: 'Consolas', monospace;
+}
+
+.stat-label {
+    color: #888;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* RTL Support */
+html[dir="rtl"] .isometric-grid {
+    transform: rotateX(60deg) rotateZ(45deg);
+}

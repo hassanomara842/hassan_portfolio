@@ -1,0 +1,44 @@
+/* ============================================================
+   SCROLLYTELLING SVG LINE (About Section)
+   ============================================================ */
+
+.about-card {
+    display: flex;
+}
+
+.journey-line {
+    position: absolute;
+    left: 10px;
+    top: 0;
+    height: 100%;
+    z-index: 1;
+    overflow: visible;
+}
+
+html[dir="rtl"] .journey-line {
+    left: auto;
+    right: 10px;
+    transform: scaleX(-1);
+}
+
+.journey-content {
+    padding-left: 40px; /* Make room for the SVG line */
+    position: relative;
+    z-index: 2;
+}
+
+html[dir="rtl"] .journey-content {
+    padding-left: 0;
+    padding-right: 40px;
+}
+
+.journey-path {
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    transition: stroke-dashoffset 0.1s linear;
+}
+
+.journey-dot {
+    filter: drop-shadow(0 0 10px var(--accent-color));
+    transition: cy 0.1s linear;
+}

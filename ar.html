@@ -50,6 +50,10 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/style.css?v=5">
     <link rel="stylesheet" href="css/phone3d.css">
+    <link rel="stylesheet" href="css/vscode-mode.css">
+    <link rel="stylesheet" href="css/terminal.css">
+    <link rel="stylesheet" href="css/scrollytelling.css">
+    <link rel="stylesheet" href="css/github-3d.css">
 
     <!-- SEO Meta Tags -->
     <meta name="description" content="حسن عمارة - شركة برمجيات وتصميم تطبيقات الجوال والمواقع الإلكترونية بأحدث التقنيات مثل Flutter و React و Python.">
@@ -143,12 +147,21 @@
         <div class="container about-grid">
             <div class="about-text scroll-reveal">
                 <h2 class="section-title" data-i18n="about-title">الـ <span class='text-gradient'>رحلة</span></span></h2>
-                <div class="glass-card about-card">
-                    <p data-i18n="about-p1">أنا حسن عمارة، مؤسس Hassan Tech. قضينا رحلتنا في إتقان فن بناء أنظمة مستقرة، قابلة للتوسع، وجذابة بصرياً. من إدارة تدفقات العمل المعقدة إلى تطوير حلول مدعومة بالذكاء الاصطناعي، كان تركيزنا دائماً على الدقة والنمو.</p>
-                    <div class="divider"></div>
-                    <p class="highlight-text" data-i18n="about-p2">فلسفتنا بسيطة: التكنولوجيا يجب أن تكون ذكية، سريعة، واحترافية.</p>
-                    <p data-i18n="about-p3"><strong>شركة حسن تك للبرمجيات</strong> مقدر لها أن تصبح رائداً عالمياً في الحلول البرمجية المتطورة.</strong> is destined
-                        to become a global leader in high-end software solutions.</p>
+                <div class="glass-card about-card" style="position: relative;">
+                    <!-- SVG Scrollytelling Line -->
+                    <svg class="journey-line" width="40" height="100%" viewBox="0 0 40 400" preserveAspectRatio="none">
+                        <path class="journey-path-bg" d="M 20 0 Q 40 50, 20 100 T 20 200 Q 0 250, 20 300 T 20 400" fill="transparent" stroke="rgba(255,255,255,0.05)" stroke-width="4"></path>
+                        <path class="journey-path" d="M 20 0 Q 40 50, 20 100 T 20 200 Q 0 250, 20 300 T 20 400" fill="transparent" stroke="var(--accent-color)" stroke-width="4"></path>
+                        <circle class="journey-dot" cx="20" cy="0" r="6" fill="var(--accent-color)"></circle>
+                    </svg>
+                    
+                    <div class="journey-content">
+                        <p data-i18n="about-p1">أنا حسن عمارة، مؤسس Hassan Tech. قضينا رحلتنا في إتقان فن بناء أنظمة مستقرة، قابلة للتوسع، وجذابة بصرياً. من إدارة تدفقات العمل المعقدة إلى تطوير حلول مدعومة بالذكاء الاصطناعي، كان تركيزنا دائماً على الدقة والنمو.</p>
+                        <div class="divider"></div>
+                        <p class="highlight-text" data-i18n="about-p2">فلسفتنا بسيطة: التكنولوجيا يجب أن تكون ذكية، سريعة، واحترافية.</p>
+                        <p data-i18n="about-p3"><strong>شركة حسن تك للبرمجيات</strong> مقدر لها أن تصبح رائداً عالمياً في الحلول البرمجية المتطورة.</strong> is destined
+                            to become a global leader in high-end software solutions.</p>
+                    </div>
                 </div>
             </div>
             <div class="about-visual scroll-reveal delay-1">
@@ -168,35 +181,35 @@
                 <p class="section-desc" data-i18n="skills-desc">أدوات صيغت للابتكار، البناء، والريادة.</p>
             </div>
 
-            <div class="skills-grid">
-                <div class="glass-card skill-card scroll-reveal">
+            <div class="skills-grid" id="skills-network">
+                <div class="glass-card skill-card scroll-reveal" data-id="mobile" data-connects-to="ai,design,web">
                     <div class="skill-icon">📱</div>
                     <h3 data-i18n="skill-mobile-title">التميز في تطبيقات الجوال</h3>
                     <p data-i18n="skill-mobile-desc">تطبيقات عالية الأداء متعددة المنصات باستخدام <strong>Flutter & Dart</strong>. خبير في Clean Architecture, BLoC, & MVVM.</strong>. Expert in Clean
                         Architecture, BLoC, & MVVM.</p>
                 </div>
-                <div class="glass-card skill-card scroll-reveal delay-1">
+                <div class="glass-card skill-card scroll-reveal delay-1" data-id="ai" data-connects-to="mobile,enterprise">
                     <div class="skill-icon">🧠</div>
                     <h3 data-i18n="skill-ai-title">الذكاء المتكامل</h3>
                     <p data-i18n="skill-ai-desc">صناعة أنظمة ذكية وتنبؤية باستخدام <strong>Python, TensorFlow, and Keras</strong>.</strong>.</p>
                 </div>
-                <div class="glass-card skill-card scroll-reveal delay-2">
+                <div class="glass-card skill-card scroll-reveal delay-2" data-id="enterprise" data-connects-to="ai,web">
                     <div class="skill-icon">⚙️</div>
                     <h3 data-i18n="skill-enterprise-title">الشركات والأنظمة</h3>
                     <p data-i18n="skill-enterprise-desc">حلول قوية للواجهات الخلفية وسطح المكتب عبر <strong>.NET, C#, and Firebase</strong>.</strong>.</p>
                 </div>
-                <div class="glass-card skill-card scroll-reveal delay-3">
+                <div class="glass-card skill-card scroll-reveal delay-3" data-id="iot" data-connects-to="enterprise">
                     <div class="skill-icon">🔌</div>
                     <h3 data-i18n="skill-iot-title">الأجهزة وإنترنت الأشياء</h3>
                     <p data-i18n="skill-iot-desc">سد الفجوة بين البرمجيات والواقع باستخدام <strong>Arduino, Linux, والأنظمة المدمجة</strong> (مراقبة المياه وأنظمة CNC).</strong> (CNC &
                         Water Monitoring).</p>
                 </div>
-                <div class="glass-card skill-card scroll-reveal delay-4">
+                <div class="glass-card skill-card scroll-reveal delay-4" data-id="design" data-connects-to="mobile,web">
                     <div class="skill-icon">🎨</div>
                     <h3 data-i18n="skill-design-title">التصميم المرئي</h3>
                     <p data-i18n="skill-design-desc">نحت المستقبل باستخدام <strong>Figma (UI/UX)</strong> و <strong>Blender (تصميم 3D)</strong>.</strong> and <strong>Blender (3D Asset Rendering)</strong>.</p>
                 </div>
-                <div class="glass-card skill-card scroll-reveal delay-5">
+                <div class="glass-card skill-card scroll-reveal delay-5" data-id="web" data-connects-to="design,enterprise,mobile">
                     <div class="skill-icon">🌐</div>
                     <h3 data-i18n="skill-web-title">تطوير الويب</h3>
                     <p data-i18n="skill-web-desc">هندسة مواقع وتطبيقات ويب <strong>احترافية وعالية الأداء</strong> باستخدام أحدث تقنيات الواجهات الأمامية والخلفية.</strong> and web applications with modern frontend and backend technologies.</p>
@@ -209,8 +222,8 @@
     <section class="certificates" id="certificates">
         <div class="container">
             <div class="section-header scroll-reveal">
-                <h2 class="section-title" data-i18n="cert-title"><span class='text-gradient'>الشهادات</span> المهنية</span></h2>
-                <p class="section-desc" data-i18n="cert-desc">محطات من التعلم المستمر والإتقان.</p>
+                <h2 class="section-title" data-i18n="cert-title">شهادات <span class='text-gradient'>احترافية</span></span></h2>
+                <p class="section-desc" data-i18n="cert-desc">محطات من التعلم المستمر والاحتراف.</p>
             </div>
 
             <div class="certificates-grid">
@@ -461,7 +474,65 @@
         </div>
     </section>
 
-    <!-- 7. Digital Presence (Footer) -->
+    <!-- 6.5 3D GitHub Contributions -->
+    <section class="github-3d-section" id="contributions">
+        <div class="container">
+            <div class="section-header center scroll-reveal">
+                <h2 class="section-title" data-i18n="git-title">نشاط <span class='text-gradient'>البرمجيات الحرة</span></span></h2>
+                <p class="section-desc" data-i18n="git-desc">تصور تفاعلي لاستمراريتي في كتابة الأكواد وبناء الهياكل.</p>
+            </div>
+            
+            <div class="github-3d-container scroll-reveal delay-1">
+                <div class="isometric-grid" id="github-grid">
+                    <!-- JS will populate this with 3D pillars -->
+                </div>
+                <div class="github-stats">
+                    <div class="stat-item">
+                        <span class="stat-num" id="total-commits">1,240+</span>
+                        <span class="stat-label" data-i18n="git-stat-1">مساهمة هذا العام</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-num">Top 5%</span>
+                        <span class="stat-label" data-i18n="git-stat-2">من أفضل المهندسين</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. The Hire Me cURL Terminal -->
+    <section class="hire-terminal-section" id="hire-me">
+        <div class="container">
+            <div class="section-header scroll-reveal">
+                <h2 class="section-title" data-i18n="hire-title">مستعد <span class='text-gradient'>لهندسة</span> رؤيتك؟</span> Your Vision?</h2>
+                <p class="section-desc" data-i18n="hire-desc">قم بتشغيل الأمر أدناه لبدء شراكة تقنية.</p>
+            </div>
+            <div class="terminal-container scroll-reveal delay-1">
+                <div class="terminal-header">
+                    <div class="terminal-dots">
+                        <span class="dot red"></span>
+                        <span class="dot yellow"></span>
+                        <span class="dot green"></span>
+                    </div>
+                    <div class="terminal-title">hassan_api — bash — 80x24</div>
+                </div>
+                <div class="terminal-body">
+                    <pre><code class="language-bash"><span class="prompt">hassan@tech:~$</span> curl -X POST https://api.hassan-tech.com/hire \\
+  -H "Content-Type: application/json" \\
+  -d '{
+    "role": "Senior Engineer / Architect",
+    "project": "We need someone to build a highly scalable ecosystem.",
+    "action": "Let us talk!"
+  }'</code></pre>
+                    <button class="btn primary-btn btn-glow terminal-run-btn" id="run-curl-btn">
+                        <i class="fas fa-play"></i> <span data-i18n="hire-btn">تنفيذ</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. Digital Presence (Footer) -->
     <footer class="footer">
         <div class="container footer-content">
             <div class="footer-brand">
@@ -560,6 +631,11 @@
         });
     </script>
     <script src="js/phone3d.js"></script>
+    <script src="js/vscode-mode.js"></script>
+    <script src="js/skill-tree.js"></script>
+    <script src="js/terminal.js"></script>
+    <script src="js/scrollytelling.js"></script>
+    <script src="js/github-3d.js"></script>
 </body>
 
 </html>
