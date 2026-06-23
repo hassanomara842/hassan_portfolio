@@ -198,12 +198,19 @@ document.addEventListener('DOMContentLoaded', () => {
     // 8. Typewriter Effect
     const typewriterEl = document.getElementById('typewriter');
     if (typewriterEl) {
-        const words = ['Innovation', 'Excellence', 'Intelligence'];
         let wordIndex = 0;
         let charIndex = 0;
         let isDeleting = false;
 
         const type = () => {
+            // Use dynamically assigned words from lang.js or fallback to english
+            const words = window.currentTypewriterWords || ['Innovation', 'Excellence', 'Intelligence'];
+            
+            // Ensure wordIndex doesn't exceed new array length when switching languages
+            if (wordIndex >= words.length) {
+                wordIndex = 0;
+            }
+            
             const currentWord = words[wordIndex];
             
             if (isDeleting) {
