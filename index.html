@@ -50,6 +50,8 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/style.css?v=5">
     <link rel="stylesheet" href="css/phone3d.css">
+    <link rel="stylesheet" href="css/vscode-mode.css">
+    <link rel="stylesheet" href="css/terminal.css">
 </head>
 
 <body>
@@ -165,35 +167,35 @@
                 <p class="section-desc" data-i18n="skills-desc">Tools forged for innovation, architecture, and dominance.</p>
             </div>
 
-            <div class="skills-grid">
-                <div class="glass-card skill-card scroll-reveal">
+            <div class="skills-grid" id="skills-network">
+                <div class="glass-card skill-card scroll-reveal" data-id="mobile" data-connects-to="ai,design,web">
                     <div class="skill-icon">📱</div>
                     <h3 data-i18n="skill-mobile-title">Mobile Excellence</h3>
                     <p data-i18n="skill-mobile-desc">High-performance cross-platform apps using <strong>Flutter & Dart</strong>. Expert in Clean
                         Architecture, BLoC, & MVVM.</p>
                 </div>
-                <div class="glass-card skill-card scroll-reveal delay-1">
+                <div class="glass-card skill-card scroll-reveal delay-1" data-id="ai" data-connects-to="mobile,enterprise">
                     <div class="skill-icon">🧠</div>
                     <h3 data-i18n="skill-ai-title">Intelligence Integrated</h3>
                     <p data-i18n="skill-ai-desc">Crafting smart, predictive systems with <strong>Python, TensorFlow, and Keras</strong>.</p>
                 </div>
-                <div class="glass-card skill-card scroll-reveal delay-2">
+                <div class="glass-card skill-card scroll-reveal delay-2" data-id="enterprise" data-connects-to="ai,web">
                     <div class="skill-icon">⚙️</div>
                     <h3 data-i18n="skill-enterprise-title">Enterprise & Systems</h3>
                     <p data-i18n="skill-enterprise-desc">Robust backend and desktop solutions via <strong>.NET, C#, and Firebase</strong>.</p>
                 </div>
-                <div class="glass-card skill-card scroll-reveal delay-3">
+                <div class="glass-card skill-card scroll-reveal delay-3" data-id="iot" data-connects-to="enterprise">
                     <div class="skill-icon">🔌</div>
                     <h3 data-i18n="skill-iot-title">Hardware & IoT</h3>
                     <p data-i18n="skill-iot-desc">Bridging software and reality with <strong>Arduino, Linux, and Embedded Systems</strong> (CNC &
                         Water Monitoring).</p>
                 </div>
-                <div class="glass-card skill-card scroll-reveal delay-4">
+                <div class="glass-card skill-card scroll-reveal delay-4" data-id="design" data-connects-to="mobile,web">
                     <div class="skill-icon">🎨</div>
                     <h3 data-i18n="skill-design-title">Visual Design</h3>
                     <p data-i18n="skill-design-desc">Sculpting the future with <strong>Figma (UI/UX)</strong> and <strong>Blender (3D Asset Rendering)</strong>.</p>
                 </div>
-                <div class="glass-card skill-card scroll-reveal delay-5">
+                <div class="glass-card skill-card scroll-reveal delay-5" data-id="web" data-connects-to="design,enterprise,mobile">
                     <div class="skill-icon">🌐</div>
                     <h3 data-i18n="skill-web-title">Web Development</h3>
                     <p data-i18n="skill-web-desc">Architecting premium, high-performance <strong>Websites</strong> and web applications with modern frontend and backend technologies.</p>
@@ -473,7 +475,39 @@
         </div>
     </section>
 
-    <!-- 7. Digital Presence (Footer) -->
+    <!-- 7. The Hire Me cURL Terminal -->
+    <section class="hire-terminal-section" id="hire-me">
+        <div class="container">
+            <div class="section-header scroll-reveal">
+                <h2 class="section-title">Ready to <span class="text-gradient">Architect</span> Your Vision?</h2>
+                <p class="section-desc">Execute the command below to initialize a partnership.</p>
+            </div>
+            <div class="terminal-container scroll-reveal delay-1">
+                <div class="terminal-header">
+                    <div class="terminal-dots">
+                        <span class="dot red"></span>
+                        <span class="dot yellow"></span>
+                        <span class="dot green"></span>
+                    </div>
+                    <div class="terminal-title">hassan_api — bash — 80x24</div>
+                </div>
+                <div class="terminal-body">
+                    <pre><code class="language-bash"><span class="prompt">hassan@tech:~$</span> curl -X POST https://api.hassan-tech.com/hire \\
+  -H "Content-Type: application/json" \\
+  -d '{
+    "role": "Senior Engineer / Architect",
+    "project": "We need someone to build a highly scalable ecosystem.",
+    "action": "Let us talk!"
+  }'</code></pre>
+                    <button class="btn primary-btn btn-glow terminal-run-btn" id="run-curl-btn">
+                        <i class="fas fa-play"></i> Execute
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. Digital Presence (Footer) -->
     <footer class="footer">
         <div class="container footer-content">
             <div class="footer-brand">
@@ -572,6 +606,9 @@
         });
     </script>
     <script src="js/phone3d.js"></script>
+    <script src="js/vscode-mode.js"></script>
+    <script src="js/skill-tree.js"></script>
+    <script src="js/terminal.js"></script>
 </body>
 
 </html>
