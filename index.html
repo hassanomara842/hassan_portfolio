@@ -313,6 +313,42 @@
                 </div>
             </div>
 
+            <!-- Dental Clinic Web Masterpiece (Horizontal Layout) -->
+            <div class="glass-card featured-web-project scroll-reveal" style="margin-bottom: 3rem;">
+                <div class="project-content">
+                    <div class="project-badge" data-i18n="proj-dental-badge">Frontend Web Architecture</div>
+                    <h3 class="project-title" data-i18n="proj-dental-title">Dental Clinic</h3>
+                    <p class="project-desc" data-i18n="proj-dental-desc">A premium and highly responsive website for a dental clinic, designed with a modern aesthetic, smooth animations, and a patient-centric user interface. Features comprehensive sections for services, team, and appointment booking.</p>
+                    <div class="tech-stack">
+                        <span>HTML</span>
+                        <span>CSS</span>
+                        <span>JavaScript</span>
+                        <span>Responsive</span>
+                    </div>
+                    <div style="display: flex; gap: 10px; margin-top: 20px;">
+                        <a href="https://dental-clinic-fawn.vercel.app/" target="_blank" class="btn btn-primary" style="padding: 0.5rem 1.2rem; font-size: 0.9rem; border-radius: 10px;" data-i18n="proj-web-btn">Live Demo</a>
+                    </div>
+                </div>
+                <div class="project-visual">
+                    <div class="browser-mockup">
+                        <div class="browser-header">
+                            <div class="browser-dots">
+                                <span></span><span></span><span></span>
+                            </div>
+                        </div>
+                        <div class="browser-content crossfade" id="dental-slider">
+                            <img src="assets/عياده اسنان 1.png" alt="Dental Clinic 1" class="active">
+                            <img src="assets/عياده اسنان 2.png" alt="Dental Clinic 2">
+                            <img src="assets/عياده اسنان 3.png" alt="Dental Clinic 3">
+                            <img src="assets/عياده اسنان 4.png" alt="Dental Clinic 4">
+                            <img src="assets/عياده اسنان 5.png" alt="Dental Clinic 5">
+                            <img src="assets/عياده اسنان 6.png" alt="Dental Clinic 6">
+                            <img src="assets/عياده اسنان 7.png" alt="Dental Clinic 7">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <!-- 3D Phone Interactive Showcase -->
             <div id="phone3d-showcase"></div>
 
@@ -631,15 +667,20 @@
     <script src="js/main.js"></script>
     <script>
         document.addEventListener("DOMContentLoaded", () => {
-            const images = document.querySelectorAll("#aura-slider img");
-            if (images.length > 0) {
-                let currentIndex = 0;
-                setInterval(() => {
-                    images[currentIndex].classList.remove("active");
-                    currentIndex = (currentIndex + 1) % images.length;
-                    images[currentIndex].classList.add("active");
-                }, 3000);
-            }
+            const setupSlider = (sliderId) => {
+                const images = document.querySelectorAll(`${sliderId} img`);
+                if (images.length > 0) {
+                    let currentIndex = 0;
+                    setInterval(() => {
+                        images[currentIndex].classList.remove("active");
+                        currentIndex = (currentIndex + 1) % images.length;
+                        images[currentIndex].classList.add("active");
+                    }, 3000);
+                }
+            };
+            
+            setupSlider("#aura-slider");
+            setupSlider("#dental-slider");
         });
     </script>
     <script src="js/phone3d.js"></script>
